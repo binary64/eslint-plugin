@@ -1,5 +1,5 @@
 {
-  "name": "eslint-plugin-xxxx",
+  "name": "@binary64/eslint-plugin",
   "version": "1.0.0",
   "description": "",
   "engines": {
@@ -10,17 +10,17 @@
     "dist"
   ],
   "scripts": {
+    "audit-ci": "npm run audit-ci:prod && npm run audit-ci:dev",
+    "audit-ci:prod": "audit-ci --low --package-manager npm --skip-dev --summary",
+    "audit-ci:dev": "audit-ci --high --package-manager npm --summary",
     "prepare": "husky install",
-    "clean": "rimraf dist",
+    "clean": "rimraf 'dist/**'",
     "prebuild": "npm run clean",
     "build": "tsc",
-    "lint": "run-s lint:ts lint:eslint lint:prettier",
+    "lint": "]lint:ts && lint:eslint",
     "lint:ts": "tsc --noEmit",
     "lint:eslint": "eslint '**/*.{js,ts}'",
-    "lint:prettier": "prettier '**/*.{js,ts,json,yaml,md}'",
-    "fix": "run-s fix:eslint fix:prettier",
-    "fix:eslint": "npm run lint:eslint -- --fix",
-    "fix:prettier": "npm run lint:prettier -- --write",
+    "lint:eslint:fix": "npm run lint:eslint --fix",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
@@ -29,51 +29,47 @@
     "update": "ts-node scripts/update"
   },
   "peerDependencies": {
-    "eslint": ">=5.16.0"
+    "eslint": ">=8"
   },
   "dependencies": {
-    "@typescript-eslint/experimental-utils": "^4.20.0"
+    "@typescript-eslint/experimental-utils": "5.10.2"
   },
   "devDependencies": {
-    "@types/eslint": "^7.2.8",
-    "@types/jest": "^26.0.22",
-    "@typescript-eslint/eslint-plugin": "^4.20.0",
-    "@typescript-eslint/parser": "^4.20.0",
-    "eslint": "^7.23.0",
-    "husky": "^6.0.0",
-    "jest": "^26.6.3",
-    "lint-staged": "^10.5.4",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.2.1",
-    "rimraf": "^3.0.2",
-    "ts-jest": "^26.5.4",
-    "ts-node": "^9.1.1",
-    "typescript": "^4.2.3"
+    "@types/eslint": "8.4.1",
+    "@types/inflected": "^1.1.29",
+    "@types/jest": "27.4.0",
+    "@typescript-eslint/eslint-plugin": "5.10.2",
+    "@typescript-eslint/parser": "5.10.2",
+    "audit-ci": "^5.1.2",
+    "eslint": "8.8.0",
+    "eslint-plugin-dprint": "0.4.0",
+    "husky": "7.0.4",
+    "inflected": "^2.1.0",
+    "jest": "27.4.7",
+    "lint-staged": "12.3.2",
+    "rimraf": "3.0.2",
+    "semantic-release": "^19.0.2",
+    "ts-jest": "27.1.3",
+    "ts-node": "10.4.0",
+    "typescript": "4.5.5"
   },
   "lint-staged": {
     "*.{js,ts}": [
-      "lint --fix",
-      "prettier --write"
-    ],
-    "*.{json,yaml,md}": [
-      "prettier --write"
+      "lint --fix"
     ]
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/???/eslint-plugin-xxxx.git"
+    "url": "git+https://github.com/binary64/eslint-plugin.git"
   },
   "keywords": [
     "typescript",
-    "template",
-    "eslint",
-    "eslintplugin",
     "eslint-plugin"
   ],
-  "author": "",
+  "author": "binary64",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/???/eslint-plugin-xxxx/issues"
+    "url": "https://github.com/binary64/eslint-plugin/issues"
   },
-  "homepage": "https://github.com/???/eslint-plugin-xxxx#readme"
+  "homepage": "https://github.com/binary64/eslint-plugin#readme"
 }

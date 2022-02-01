@@ -1,37 +1,4 @@
-**forked from [mysticatea/template-eslint-plugin](https://github.com/mysticatea/template-eslint-plugin)**
-
----
-
-This is a trial of [GitHub Repository Template](https://github.blog/2019-06-06-generate-new-repositories-with-repository-templates/).
-
-Please update `package.json` after you created new repository with this template.
-
-**File Structure**:
-
-- `docs/rules/` is the directory to put documentation.
-- `src/rules/` is the directory to put rule definitions.
-- `scripts/` is the directory to put development scripts.
-- `tests/` is the directory to put tests for `src/`.
-- `.eslintignore` and `.eslintrc.js` are the configuration to lint this repository.
-
-**Dependencies**:
-
-This template uses [Jest](https://jestjs.io/) and [GitHub Actions](https://github.co.jp/features/actions) for tests, as same as ESLint itself. If you want to use other tools, customize it.
-
-**Development Tools**:
-
-- `npm run add-rule foo` command adds a rule definition.
-- `npm update` command updates the following stuff by the `meta` property of rules:
-  - the header of `docs/rules/*.md`.
-  - `lib/configs/recommended.ts` file.
-  - `lib/index.ts` file.
-  - the rule table in `README.md` file.
-
-Below is an example of README.
-
----
-
-# eslint-plugin-xxxx (template)
+# @binary64/eslint-plugin
 
 <!--
 [![npm version](https://img.shields.io/npm/v/eslint-plugin-xxxx.svg)](https://www.npmjs.com/package/eslint-plugin-xxxx)
@@ -41,20 +8,21 @@ Below is an example of README.
 [![Dependency Status](https://david-dm.org/mysticatea/eslint-plugin-xxxx.svg)](https://david-dm.org/mysticatea/eslint-plugin-xxxx)
 -->
 
-A template for ESLint plugins.
+A collection of ESLint plugins.
 
 ## Installation
 
 Use [npm](https://www.npmjs.com/) or a compatibility tool to install.
 
-```
-$ npm install --save-dev eslint eslint-plugin-xxxx
+```bash
+npm install --save-dev eslint @binary64/eslint-plugin
+yarn add -D eslint @binary64/eslint-plugin
 ```
 
-### Requirements
+### Supported versions
 
-- Node.js v8.10.0 or newer versions.
-- ESLint v5.16.0 or newer versions.
+- Node.js v16 or newer.
+- ESLint v8 or newer.
 
 ## Usage
 
@@ -62,16 +30,16 @@ Write your config file such as `.eslintrc.yml`.
 
 ```yml
 plugins:
-  - xxxx
+  - @binary64
 rules:
-  xxxx/example-rule: error
+  @binary64/example-rule: error
 ```
 
 See also [Configuring ESLint](https://eslint.org/docs/user-guide/configuring).
 
 ## Configs
 
-- `xxxx/recommended` ... enables the recommended rules.
+- `@binary64/recommended` ... enables the recommended rules.
 
 ## Rules
 
