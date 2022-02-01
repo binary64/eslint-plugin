@@ -17,7 +17,7 @@
     "clean": "rimraf 'dist/**'",
     "prebuild": "npm run clean",
     "build": "tsc",
-    "lint": "]lint:ts && lint:eslint",
+    "lint": "lint:ts && lint:eslint",
     "lint:ts": "tsc --noEmit",
     "lint:eslint": "eslint '**/*.{js,ts}'",
     "lint:eslint:fix": "npm run lint:eslint --fix",
@@ -54,7 +54,7 @@
     "typescript": "4.5.5"
   },
   "lint-staged": {
-    "*.{js,ts}": [
+    "*.{js,ts}x?": [
       "lint --fix"
     ]
   },
