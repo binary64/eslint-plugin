@@ -1,5 +1,5 @@
 import { TSESLint } from '@typescript-eslint/utils'
-import { classify } from 'inflected'
+import { camelize } from 'inflected'
 
 const rule: TSESLint.RuleModule<'onlyOneVariableDeclarationSupported' | 'missingVariableDeclarationIdentifier' | 'mustCallUseState' | 'mustUseArrayPattern' | 'mustUseTuple' | 'mustUseIdentifierInTuple' | 'inconsistentNaming', []> = {
   meta: {
@@ -71,7 +71,7 @@ const rule: TSESLint.RuleModule<'onlyOneVariableDeclarationSupported' | 'missing
           return
         }
         const readerName = readerElement.name
-        const setterName = `set${classify(readerName)}`
+        const setterName = `set${camelize(readerName, true)}`
         if (setterName !== setterElement.name) {
           context.report({
             messageId: 'inconsistentNaming', node: setterElement, data: {
