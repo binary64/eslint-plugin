@@ -3,12 +3,12 @@
 
 export = {
   configs: {
-    recommended: (await import('./configs/recommended')).default,
+    recommended: import('./configs/recommended'),
   },
   rules: {
-    'formik-require-generic': (await import('./rules/formik-require-generic')).default,
-    'classnames-require': (await import('./rules/classnames-require')).default,
-    'react-consistent-usestate-naming': (await import('./rules/react-consistent-usestate-naming')).default,
-    'react-deprecate-fc': (await import('./rules/react-deprecate-fc')).default,
+    'formik-require-generic': import('./rules/formik-require-generic'),
+    'classnames-require': import('./rules/classnames-require'),
+    'react-consistent-usestate-naming': import('./rules/react-consistent-usestate-naming'),
+    'react-deprecate-fc': import('./rules/react-deprecate-fc'),
   },
 }
