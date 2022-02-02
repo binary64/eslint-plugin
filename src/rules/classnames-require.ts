@@ -39,8 +39,7 @@ const rule: TSESLint.RuleModule<'requiresClassNames' | 'mustCallFunctionCalledCl
                   messageId: 'requiresClassNames',
                 })
               } else if (classNameAttribute.value.expression.type === 'MemberExpression') {
-                if (classNameAttribute.value.expression.object.type === 'Identifier' && classNameAttribute.value.expression.object.name === 'styles') {
-                } else {
+                if (!(classNameAttribute.value.expression.object.type === 'Identifier' && classNameAttribute.value.expression.object.name === 'styles')) {
                   context.report({
                     loc: classNameAttribute.value.expression.object.loc,
                     messageId: 'mustCallStyles',
@@ -61,9 +60,6 @@ const rule: TSESLint.RuleModule<'requiresClassNames' | 'mustCallFunctionCalledCl
                   if (classNameAttribute.value.expression.callee.name === 'classNames') {
                     if (classNameAttribute.value.expression.arguments.length === 1) {
                       if (classNameAttribute.value.expression.arguments[0].type !== 'ObjectExpression') {
-                        if (classNameAttribute.value.expression.arguments[0].type === 'MemberExpression') {
-
-                        }
                         context.report({
                           loc: classNameAttribute.value.expression.arguments[0].loc,
                           messageId: 'uselessSingleArgument',
@@ -75,9 +71,7 @@ const rule: TSESLint.RuleModule<'requiresClassNames' | 'mustCallFunctionCalledCl
                     }
                     if (classNameAttribute.value.expression.arguments.length > 0) {
                       for (const argument of classNameAttribute.value.expression.arguments) {
-                        if (argument.type === 'MemberExpression') {
-                        } else if (argument.type === 'ObjectExpression') {
-                        } else {
+                        if (argument.type !== 'MemberExpression'&& argument.type !== 'ObjectExpression') {
                           if (process.env.DEBUG) console.log("HUH4", argument.type)
 
                           context.report({
