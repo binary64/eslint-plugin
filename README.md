@@ -63,7 +63,7 @@ This plugin follows [Semantic Versioning](http://semver.org/) and [ESLint's Sema
 
 ## Contributing
 
-Welcome your contribution!
+Your contributions are welcomed. Please open an Issue, PR, or Discussion.
 
 See also [ESLint Contribution Guide](https://eslint.org/docs/developer-guide/contributing/).
 
