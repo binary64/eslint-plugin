@@ -33,7 +33,7 @@ interface FormTypes {
 
 ## Options
 
-Nothing.
+No options are supported.
 
 ## Implementation
 

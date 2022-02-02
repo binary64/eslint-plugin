@@ -42,14 +42,9 @@ import classnames from 'classnames'
 
 const TRUE_BOOL = true
 
-// These have incorrectly named default imports
 const Component1 = () => <div className={classnames(styles.yourRuleName, styles.yourRuleName2)} />
 const Component2 = () => <div className={classnames(styles.yourRuleName, styles.yourRuleName2)} />
-
-// These aren't using the documentated API from 'classnames' correctly:
 const Component3 = () => <div className={classnames({ styles.yourRuleName: TRUE_BOOL })} />
-
-// These are pointless invokation of classnames and should be simplified:
 const Component4 = () => <div className={styles.yourRuleName} />
 ```
 

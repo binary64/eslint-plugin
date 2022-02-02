@@ -49,7 +49,7 @@ const Component = () => {
 
 ## Options
 
-Nothing.
+No options are supported.
 
 ## Implementation
 
