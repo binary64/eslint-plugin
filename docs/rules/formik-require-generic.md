@@ -1,6 +1,6 @@
-# xxxx/example-rule
+# @binary64/formik-require-generic
 
-> An example rule.
+> Force the use of generics when using Formik component
 >
 > - ⭐️ This rule is included in `plugin:@binary64/recommended` preset.
 
@@ -8,22 +8,27 @@ This is an example.
 
 ## Rule Details
 
-This rule aimed at disallowing `example` identifiers.
+Formik with no generic typing produces values of type `any`. It is best practice to use strongly typed form values.
 
 Examples of **incorrect** code:
 
-```js
-/*eslint template/example-rule: error */
+```jsx
+/*eslint @binary64/formik-require-generic: error */
 
-var example = 1;
+<Formik />
+<Formik<any> />
 ```
 
 Examples of **correct** code:
 
-```js
-/*eslint template/example-rule: error */
+```jsx
+/*eslint @binary64/formik-require-generic: error */
 
-var foo = 1;
+interface FormTypes {
+  test: string
+}
+
+<Formik<FormTypes> />
 ```
 
 ## Options
@@ -32,5 +37,5 @@ Nothing.
 
 ## Implementation
 
-- [Rule source](../../src/rules/example-rule.ts)
-- [Test source](../../tests/rules/example-rule.ts)
+- [Rule source](../../src/rules/formik-require-generic.ts)
+- [Test source](../../tests/rules/formik-require-generic.ts)

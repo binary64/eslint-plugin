@@ -1,10 +1,8 @@
-# xxxx/example-rule
+# @binary64/classnames-require
 
-> An example rule.
+> Enforce stylistic rules on the usage of 'classnames' module.
 >
 > - ⭐️ This rule is included in `plugin:@binary64/recommended` preset.
-
-This is an example.
 
 ## Rule Details
 
@@ -12,25 +10,54 @@ This rule aimed at disallowing `example` identifiers.
 
 Examples of **incorrect** code:
 
-```js
-/*eslint template/example-rule: error */
+```jsx
+/*eslint @binary64/classnames-require: error */
 
-var example = 1;
+import cn from 'classnames'
+import classNames from 'classnames'
+import classnames from 'classnames'
+
+const TRUE_BOOL = true
+
+// These have incorrectly named default imports
+const Component1 = () => <div className={cn('yourRuleName', 'yourRuleName2')} />
+const Component2 = () => <div className={classNames('yourRuleName', 'yourRuleName2')} />
+
+// These aren't using the API from 'classnames' as per their documentation:
+const Component3 = () => <div className={classnames(TRUE_BOOL ? 'yourRuleName' : '')} />
+
+// These are pointless invokation of classnames and should be simplified:
+const Component4 = () => <div className={classnames('yourRuleName')} />
+
 ```
 
 Examples of **correct** code:
 
-```js
+```jsx
 /*eslint template/example-rule: error */
 
-var foo = 1;
+import cn from 'classnames'
+import classNames from 'classnames'
+import classnames from 'classnames'
+
+const TRUE_BOOL = true
+
+// These have incorrectly named default imports
+const Component1 = () => <div className={classnames(styles.yourRuleName, styles.yourRuleName2)} />
+const Component2 = () => <div className={classnames(styles.yourRuleName, styles.yourRuleName2)} />
+
+// These aren't using the documentated API from 'classnames' correctly:
+const Component3 = () => <div className={classnames({ styles.yourRuleName: TRUE_BOOL })} />
+
+// These are pointless invokation of classnames and should be simplified:
+const Component4 = () => <div className={styles.yourRuleName} />
 ```
 
 ## Options
 
-Nothing.
+No options are supported.
 
 ## Implementation
 
-- [Rule source](../../src/rules/example-rule.ts)
-- [Test source](../../tests/rules/example-rule.ts)
+- [Rule source](../../src/rules/classnames-require.ts)
+- [Test source](../../tests/rules/classnames-require.ts)

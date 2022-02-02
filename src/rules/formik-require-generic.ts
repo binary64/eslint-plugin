@@ -6,7 +6,7 @@ const rule: TSESLint.RuleModule<'requiresGenericTyping', []> = {
       description: 'An example rule.',
       recommended: 'warn',
       url:
-        'https://github.com/kotarella1110/template-typescript-eslint-plugin/blob/master/docs/rules/example-rule.md',
+        'https://github.com/binary64/eslint-plugin/blob/master/docs/rules/formik-require-generic.md',
     },
     messages: {
       requiresGenericTyping: "Use <Formik<T>> to strongly type Formik's props.",

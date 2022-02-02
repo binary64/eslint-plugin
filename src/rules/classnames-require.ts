@@ -6,7 +6,7 @@ const rule: TSESLint.RuleModule<'requiresClassNames' | 'mustCallFunctionCalledCl
       description: 'An example rule.',
       recommended: 'warn',
       url:
-        'https://github.com/kotarella1110/template-typescript-eslint-plugin/blob/master/docs/rules/example-rule.md',
+        'https://github.com/binary64/eslint-plugin/blob/master/docs/rules/classnames-require.md',
     },
     messages: {
       requiresClassNames: 'Use classNames() to parse the class names consistently.',

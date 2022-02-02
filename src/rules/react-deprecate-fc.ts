@@ -6,7 +6,7 @@ const rule: TSESLint.RuleModule<'dontUseFc', []> = {
       description: 'An example rule.',
       recommended: 'warn',
       url:
-        'https://github.com/kotarella1110/template-typescript-eslint-plugin/blob/master/docs/rules/example-rule.md',
+        'https://github.com/binary64/eslint-plugin/blob/master/docs/rules/react-deprecate-fc.md',
     },
     messages: {
       dontUseFc: 'React.FC is no longer recommended. Use `({ ...props }: P) =>` instead',

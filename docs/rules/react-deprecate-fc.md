@@ -1,29 +1,43 @@
-# xxxx/example-rule
+# @binary64/react-deprecate-fc
 
-> An example rule.
+> Prevents the use of React.FC
 >
 > - ⭐️ This rule is included in `plugin:@binary64/recommended` preset.
 
-This is an example.
+`React.FC` is not part of the 'react' module. It is a community-driven module called '@types/react'. For this reason, it is preferred to use the built-in React typings which are as follows:
 
 ## Rule Details
 
-This rule aimed at disallowing `example` identifiers.
-
 Examples of **incorrect** code:
 
-```js
-/*eslint template/example-rule: error */
+```jsx
+/*eslint @binary64/react-deprecate-fc: error */
 
-var example = 1;
+interface P {
+  test: string
+}
+const ComponentThatCanHaveChildren = ({ test }: React.PropsWithChildren<P>) => {
+
+interface P {
+  test: string
+}
+const ComponentThatCanNeverHaveChildren = ({ test }: P) => {
 ```
 
 Examples of **correct** code:
 
-```js
-/*eslint template/example-rule: error */
+```jsx
+/*eslint @binary64/react-deprecate-fc: error */
 
-var foo = 1;
+interface P {
+  test: string
+}
+const ComponentThatCanHaveChildren = ({ test }: React.PropsWithChildren<P>) => {
+
+interface P {
+  test: string
+}
+const ComponentThatCanNeverHaveChildren = ({ test }: P) => {
 ```
 
 ## Options
@@ -32,5 +46,5 @@ Nothing.
 
 ## Implementation
 
-- [Rule source](../../src/rules/example-rule.ts)
-- [Test source](../../tests/rules/example-rule.ts)
+- [Rule source](../../src/rules/react-deprecate-fc.ts)
+- [Test source](../../tests/rules/react-deprecate-fc.ts)

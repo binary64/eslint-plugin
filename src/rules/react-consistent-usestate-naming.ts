@@ -1,13 +1,15 @@
 import { TSESLint } from '@typescript-eslint/utils'
 import { camelize } from 'inflected'
 
+const pascalise = (str: string) => camelize(str, true)
+
 const rule: TSESLint.RuleModule<'onlyOneVariableDeclarationSupported' | 'missingVariableDeclarationIdentifier' | 'mustCallUseState' | 'mustUseArrayPattern' | 'mustUseTuple' | 'mustUseIdentifierInTuple' | 'inconsistentNaming', []> = {
   meta: {
     docs: {
       description: 'An example rule.',
       recommended: 'warn',
       url:
-        'https://github.com/kotarella1110/template-typescript-eslint-plugin/blob/master/docs/rules/example-rule.md',
+        'https://github.com/binary64/eslint-plugin/blob/master/docs/rules/react-consistent-usestate-naming.md',
     },
     messages: {
       inconsistentNaming: 'Inconsistent naming, expected \'{{expected}}\'',
@@ -71,7 +73,7 @@ const rule: TSESLint.RuleModule<'onlyOneVariableDeclarationSupported' | 'missing
           return
         }
         const readerName = readerElement.name
-        const setterName = `set${camelize(readerName, true)}`
+        const setterName = `set${pascalise(readerName)}`
         if (setterName !== setterElement.name) {
           context.report({
             messageId: 'inconsistentNaming', node: setterElement, data: {
