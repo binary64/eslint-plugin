@@ -16,12 +16,13 @@ Examples of **incorrect** code:
 interface P {
   test: string
 }
-const ComponentThatCanHaveChildren = ({ test }: React.PropsWithChildren<P>) => {
 
-interface P {
-  test: string
-}
-const ComponentThatCanNeverHaveChildren = ({ test }: P) => {
+// This is almost OK, however it's using third-party code instead of official React.
+const ComponentThatCanHaveChildren: FC<P> = ({ test }) => {
+
+// The flaw here is you can supply JSX children to this ccomponent, but nothing will ever complain,
+// and the children will be silently lost.
+const ComponentThatCanNeverHaveChildren: FC<P> = ({ test }) => {
 ```
 
 Examples of **correct** code:
@@ -32,11 +33,8 @@ Examples of **correct** code:
 interface P {
   test: string
 }
-const ComponentThatCanHaveChildren = ({ test }: React.PropsWithChildren<P>) => {
 
-interface P {
-  test: string
-}
+const ComponentThatCanHaveChildren = ({ test }: React.PropsWithChildren<P>) => {
 const ComponentThatCanNeverHaveChildren = ({ test }: P) => {
 ```
 
