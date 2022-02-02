@@ -2,6 +2,9 @@
   "name": "@binary64/eslint-plugin",
   "version": "1.0.1",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Collection of ESLint rules",
   "engines": {
     "node": ">=8.10.0"
