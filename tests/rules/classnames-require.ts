@@ -16,8 +16,33 @@ new TSESLint.RuleTester(parserOptions).run(
   'formik-require-generic',
   rule,
   {
-    valid: ['<Blah className={"hi there"} />'],
+    valid: [
+      // '<Blah className={"hi"} />',
+      // '<Blah className={\'hi\'} />',
+      // '<Blah className={`hi`} />',
+      '<Blah className="hi" />',
+    ],
     invalid: [
+      // {
+      //   code: '<Blah className="hi there" />',
+      //   errors: [{ messageId: 'requiresClassNames' }],
+      // },
+      // {
+      //   code: '<Blah className={"hi there"} />',
+      //   errors: [{ messageId: 'requiresClassNames' }],
+      // },
+      // {
+      //   code: '<Blah className={\'hi there\'} />',
+      //   errors: [{ messageId: 'requiresClassNames' }],
+      // },
+      {
+        code: '<Blah className={`hi there`} />',
+        errors: [{ messageId: 'requiresClassNames' }],
+      },
+      {
+        code: "<Blah className={`${true && 'there'}`} />",
+        errors: [{ messageId: 'requiresClassNames' }],
+      },
       {
         code: "<Blah className={`hi ${true && 'there'}`} />",
         errors: [{ messageId: 'requiresClassNames' }],
