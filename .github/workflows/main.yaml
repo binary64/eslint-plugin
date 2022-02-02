@@ -22,8 +22,10 @@ jobs:
           CI: true
       - name: Build
         run: npm run build
-      - name: Release
-        run: npm run release
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm run release
         env:
           CI: true
           NODE_ENV: production
