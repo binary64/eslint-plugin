@@ -1,7 +1,7 @@
 {
   "name": "@binary64/eslint-plugin",
   "version": "1.0.0",
-  "description": "",
+  "description": "Collection of ESLint rules",
   "engines": {
     "node": ">=8.10.0"
   },
