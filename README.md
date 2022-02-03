@@ -26,13 +26,12 @@ yarn add -D eslint @binary64/eslint-plugin
 
 ## Usage
 
-Write your config file such as `.eslintrc.yml`.
+Edit your `.eslintrc.json`:
 
-```yml
-plugins:
-  - @binary64
-rules:
-  @binary64/example-rule: error
+```json
+{
+  "extends": ["plugin:@binary64/recommended"],
+}
 ```
 
 See also [Configuring ESLint](https://eslint.org/docs/user-guide/configuring).
