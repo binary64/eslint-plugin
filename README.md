@@ -44,16 +44,19 @@ See also [Configuring ESLint](https://eslint.org/docs/user-guide/configuring).
 
 <!--RULE_TABLE_BEGIN-->
 
+### Typing Issues
+
+| Rule ID                                           | Description      |     |
+| :------------------------------------------------ | :--------------- | :-: |
+| [@binary64/formik-require-generic](./docs/rules/formik-require-generic.md) | Force the use of generics when using Formik component | ⭐️ |
+| [@binary64/react-deprecate-fc](./docs/rules/react-deprecate-fc.md) | Prevents the use of React.FC | ⭐️ |
+
 ### Stylistic Issues
 
 | Rule ID                                           | Description      |     |
 | :------------------------------------------------ | :--------------- | :-: |
 | [@binary64/classnames-require](./docs/rules/classnames-require.md) | Enforce stylistic rules on the usage of 'classnames' module. | ⭐️ |
-| [@binary64/formik-require-generic](./docs/rules/formik-require-generic.md) | Force the use of generics when using Formik component | ⭐️ |
 | [@binary64/react-consistent-usestate-naming](./docs/rules/react-consistent-usestate-naming.md) | Enforce stylistic rules on the usage of `React.useState` | ⭐️ |
-| [@binary64/react-deprecate-fc](./docs/rules/react-deprecate-fc.md) | Prevents the use of React.FC | ⭐️ |
-
-<!--RULE_TABLE_END-->
 
 ## Semantic Versioning Policy
 
